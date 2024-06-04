@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		277E509A2C0F4A5900B29AE4 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277E50992C0F4A5900B29AE4 /* ApiResult.swift */; };
+		278A178C2C0F7AE9007E8EB4 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278A178B2C0F7AE9007E8EB4 /* ApiManager.swift */; };
 		27D51F282C0F3A72003C999D /* API_EWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51F272C0F3A72003C999D /* API_EWApp.swift */; };
 		27D51F2A2C0F3A72003C999D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51F292C0F3A72003C999D /* ContentView.swift */; };
 		27D51F2C2C0F3A74003C999D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D51F2B2C0F3A74003C999D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		277E50992C0F4A5900B29AE4 /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
+		278A178B2C0F7AE9007E8EB4 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		27D51F242C0F3A72003C999D /* API EW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API EW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51F272C0F3A72003C999D /* API_EWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_EWApp.swift; sourceTree = "<group>"; };
 		27D51F292C0F3A72003C999D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		278A178A2C0F7ADF007E8EB4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				278A178B2C0F7AE9007E8EB4 /* ApiManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		27D51F1B2C0F3A72003C999D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		27D51F262C0F3A72003C999D /* API EW */ = {
 			isa = PBXGroup;
 			children = (
+				278A178A2C0F7ADF007E8EB4 /* Managers */,
 				277E50982C0F4A4700B29AE4 /* Models */,
 				27D51F272C0F3A72003C999D /* API_EWApp.swift */,
 				27D51F292C0F3A72003C999D /* ContentView.swift */,
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D51F2A2C0F3A72003C999D /* ContentView.swift in Sources */,
+				278A178C2C0F7AE9007E8EB4 /* ApiManager.swift in Sources */,
 				277E509A2C0F4A5900B29AE4 /* ApiResult.swift in Sources */,
 				27D51F282C0F3A72003C999D /* API_EWApp.swift in Sources */,
 			);

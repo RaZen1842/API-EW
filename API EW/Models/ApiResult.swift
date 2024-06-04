@@ -7,4 +7,9 @@
 
 import Foundation
 
-
+struct ApiShuffleResult: Codable {
+    let success: Bool
+    let deck_id: String
+    let shuffled: Bool
+    let remaining: Int
+}

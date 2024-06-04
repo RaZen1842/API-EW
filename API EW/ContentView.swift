@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var shuffle: Bool = false
+    @State private var result: [ApiShuffleResult] = []
+    
+    @ObservedObject var apiManager = ApiManager.shared
+    
     var body: some View {
         VStack {
-            Text("Some Text")
+            Button("Shuffle Deck") {
+                shuffle.toggle()
+            }
+            if shuffle == true {
+                apiManager.shuffleDeck { result in
+                    self.result = result
+                }
+            }
         }
     }
 }
