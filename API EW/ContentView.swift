@@ -9,20 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var shuffle: Bool = false
-    @State private var result: [ApiShuffleResult] = []
+    @State private var shuffle: Bool = true
+    @State private var result: ApiShuffleResult?
     
     @ObservedObject var apiManager = ApiManager.shared
     
     var body: some View {
         VStack {
             Button("Shuffle Deck") {
-                shuffle.toggle()
-            }
-            if shuffle == true {
-                apiManager.shuffleDeck { result in
-                    self.result = result
+                
+                if shuffle == true {
+                    apiManager.shuffleDeck { result in
+                        DispatchQueue.main.async {
+                            self.result = result
+                        }
+                    }
                 }
+            }
+            
+            if let result = result {
+                Text("Deck ID: \(result.deck_id)")
+                Text("Shuffled: \(result.shuffled ? "Yes" : "No")")
+                Text("Remaining: \(result.remaining)")
+            } else {
+                Text("No result")
             }
         }
     }

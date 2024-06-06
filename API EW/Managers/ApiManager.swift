@@ -15,7 +15,7 @@ class ApiManager: ObservableObject {
     
     private let baseURL = "https://deckofcardsapi.com/api/deck/"
     
-    func shuffleDeck(completion: @escaping ([ApiShuffleResult]) -> Void) {
+    func shuffleDeck(completion: @escaping (ApiShuffleResult?) -> Void) {
         let query = "new/shuffle/?deck_count=1"
         
         guard let url = URL(string: baseURL + query) else {
@@ -29,16 +29,24 @@ class ApiManager: ObservableObject {
                 return
             }
             
-            let decoder = JSONDecoder()
-                        
-                    guard let data = data,
-                            let result = try? decoder.decode([ApiShuffleResult].self, from: data) else {
-                        print("Error decoding")
-                        return
-                    }
-                        
-                    completion(result)
-                }
-                task.resume()
+            guard let data = data else {
+                print("No data received")
+                return
             }
+            
+            do {
+                let decoder = JSONDecoder()
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print("Response JSON: \(json)")
+                
+                let result = try decoder.decode(ApiShuffleResult.self, from: data)
+                completion(result)
+            } catch {
+                print("Error decoding JSON: \(error)")
+                print("Response data: \(String(data: data, encoding: .utf8) ?? "Unable to convert data to string")")
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
 }
